@@ -7,7 +7,36 @@
 */
 
 function isPalindrome(str) {
+  const upperCaseStr = str
+    .split(" ")
+    .join("")
+    .split(",")
+    .join("")
+    .split("!")
+    .join("")
+    .split(".")
+    .join("")
+    .split("?")
+    .join("")
+    .toUpperCase();
+  console.log(upperCaseStr);
+  const wordLength = upperCaseStr.length;
+  console.log(wordLength, upperCaseStr);
+  for (letterCount = 0; letterCount < wordLength; letterCount++) {
+    console.log(
+      upperCaseStr[letterCount],
+      upperCaseStr[wordLength - letterCount - 1]
+    );
+    if (
+      upperCaseStr[letterCount] === upperCaseStr[wordLength - letterCount - 1]
+    ) {
+      letterCount++;
+    } else {
+      return false;
+      break;
+    }
+  }
   return true;
 }
-
+// isPalindrome("heyyyyd");
 module.exports = isPalindrome;
